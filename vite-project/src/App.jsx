@@ -8,10 +8,8 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        <LogIn />
-      </div>
       <GamePage />
+      <LogIn /> 
     </>
   )
 }

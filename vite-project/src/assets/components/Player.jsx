@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Player.module.css'
 import Options from './Options.jsx'
-function Player(){
+function Player(props){
 
     const [counter, setCounter] = useState(0);
     const [stepsSum, setStepsSum] = useState(0);
@@ -28,7 +28,7 @@ function Player(){
 
     return (
         <div className={styles.playerCart}>
-            <h2>Gamer:</h2>
+            <h2>Gamer: {props.objectPlayer.name}</h2>
             <h3>counter: {counter}</h3>
             <h4>steps: {stepsSum}</h4>
             <Options    onPlusOne={addOne}
@@ -36,7 +36,7 @@ function Player(){
                         onMult={multByTwo}
                         onDivide={divideByTwo}
             />
-            <h4>scores:</h4>
+            <h4>scores: [{props.objectPlayer.scores.join(', ')}]</h4>
         </div>
     );
 }
