@@ -1,0 +1,15 @@
+.bodyGamePage{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-size: 72px;
+    background: -webkit-linear-gradient(#eee, #082ad1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
