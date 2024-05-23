@@ -38,8 +38,6 @@ const LogIn = () => {
         name: playerName,
         password: playerPassword,
         scores: [],
-        playing: true,
-        steps: 0
       };
 
       // Save the new player to local storage

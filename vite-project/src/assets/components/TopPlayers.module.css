@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Roboto+Slab:wght@400&display=swap');
+
+.topPlayersContainer {
+  border-left: 2px solid #555;
+  float: left;
+  padding: 20px;
+  width: 300px;
+  background: linear-gradient(145deg, #1e1e1e, #03051f);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  color: #e8e4ee;
+  font-family: 'Roboto', sans-serif;
+}
+
+.topPlayersContainer h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #e5e5f7;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-family: 'Roboto Slab', serif;
+}
+
+.topPlayersContainer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.topPlayersContainer li {
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 15px;
+  background: #d0c7e2;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+  font-family: 'Roboto Slab', serif;
+}
+
+.topPlayersContainer li span {
+  color: #231b6d;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+.topPlayersContainer li::before {
+  content: '🏆';
+  position: absolute;
+  top: -20px;
+  font-size: 30px;
+
+}
+
+.topPlayersContainer li:nth-child(1) {
+  background: #707ce7; /* Light purple for 1st place */
+  font-weight: bold;
+}
+
+.topPlayersContainer li:nth-child(2) {
+  background: #4554da;/* Medium purple for 2nd place */
+
+  font-weight: bold;
+}
+
+.topPlayersContainer li:nth-child(3) {
+  background:#2f3dbd; /* Darker purple for 3rd place */
+  font-weight: bold;
+}
