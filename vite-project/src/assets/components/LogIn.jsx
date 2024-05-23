@@ -37,7 +37,7 @@ const LogIn = () => {
       const newPlayer = {
         name: playerName,
         password: playerPassword,
-        scores: [],
+        scores: []
       };
 
       // Save the new player to local storage
@@ -70,6 +70,7 @@ const LogIn = () => {
   const nextPlayer = () => {
     setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % players.length);
   };
+
 
   return (
     <>
