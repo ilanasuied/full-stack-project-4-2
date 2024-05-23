@@ -3,7 +3,7 @@ import styles from './Player.module.css'
 import Options from './Options.jsx'
 function Player(props){
 
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(Math.floor(Math.random() * 100));
     const [stepsSum, setStepsSum] = useState(0);
 
 
@@ -31,6 +31,10 @@ function Player(props){
         props.onActionComplete();
     };
 
+    const chooseRandom = () =>{
+        //
+    }
+
     return (
         <div className={props.isCurrentPlayer ? styles.playerCart : styles.playerCartDisable }>
             <h2>Gamer: {props.objectPlayer.name}</h2>
@@ -40,7 +44,7 @@ function Player(props){
                         onMinusOne={minusOne}
                         onMult={multByTwo}
                         onDivide={divideByTwo}
-                        disabled={!props.isCurrentPlayer} // Désactiver les boutons si ce n'est pas le tour du joueur
+                        disabled={!props.isCurrentPlayer}
             />
             <h4>scores: [{props.objectPlayer.scores.join(', ')}]</h4>
         </div>
