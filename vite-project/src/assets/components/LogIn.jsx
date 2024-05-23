@@ -15,7 +15,11 @@ const LogIn = () => {
     const playerName = inputName;
     const playerPassword = inputPassword;
     const playerKey = `${playerName}_${playerPassword}`;
-
+    if(playerName === '' || playerPassword === ''){
+      setInputName('');
+      setInputPassword('');
+      return;
+    }
     let playerAdded;
     // Check if player already exists in local storage
     const existingPlayer = localStorage.getItem(playerKey);
