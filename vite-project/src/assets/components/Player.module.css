@@ -4,4 +4,11 @@
     padding: 20px 50px;
     border-radius: 50px;
     background-color: rgb(65, 65, 65);
+    border: 1px solid rgb(0, 119, 255);
+}
+.playerCartDisable{
+    color: rgb(114, 114, 114);
+    padding: 20px 50px;
+    border-radius: 50px;
+    background-color: rgb(36, 36, 36);
 }

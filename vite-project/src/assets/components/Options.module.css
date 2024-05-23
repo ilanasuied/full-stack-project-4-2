@@ -1,3 +1,7 @@
 .optionsBtn{
     border-radius: 0%;
 }
+
+.options{
+    border: 1px solid rgb(122, 122, 122)
+}

@@ -8,6 +8,7 @@ const LogIn = () => {
   // State to store the current input values
   const [inputName, setInputName] = useState('');
   const [inputPassword, setInputPassword] = useState('');
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
 
   // Function to handle adding a player
   const handleAddPlayer = () => {
@@ -64,8 +65,13 @@ const LogIn = () => {
   };
 
   const handleStart = () => {
+    handleAddPlayer();
     document.getElementById('modal').style.display = 'none';
   }
+
+  const nextPlayer = () => {
+    setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % players.length);
+  };
 
   return (
     <>
@@ -111,7 +117,10 @@ const LogIn = () => {
       </div>
       <div className={styles.playersList}>
         {players.map((player, index) => (
-          <Player key={index} objectPlayer={player} />
+          <Player key={index} 
+                  objectPlayer={player} 
+                  isCurrentPlayer={index === currentPlayerIndex}
+                  onActionComplete={nextPlayer}/>
         ))}
       </div>
     </>

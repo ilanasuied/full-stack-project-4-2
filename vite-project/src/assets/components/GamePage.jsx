@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import styles from './GamePage.module.css'
-import Player from './Player.jsx'
 
 function GamePage() {
 
