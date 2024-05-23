@@ -38,7 +38,7 @@ function Player(props){
     return (
         <div className={props.isCurrentPlayer ? styles.playerCart : styles.playerCartDisable }>
             <h2>Gamer: {props.objectPlayer.name}</h2>
-            <h3>counter: {counter}</h3>
+            <h1>{counter}</h1>
             <h4>steps: {stepsSum}</h4>
             <Options    onPlusOne={addOne}
                         onMinusOne={minusOne}
