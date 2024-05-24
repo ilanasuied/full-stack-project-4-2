@@ -70,7 +70,10 @@ const LogIn = () => {
 
   const leaveTheGame = (objPlayer) => {
     setPlayers(prevPlayers => prevPlayers.filter(player => player.key !== objPlayer.key));
-    console.log(players);
+    console.log(players.length);
+    if(players.length == 1){
+      document.getElementById('modal').style.display = 'block';
+    }
   }
 
   const playAgain = (objPlayer) => {

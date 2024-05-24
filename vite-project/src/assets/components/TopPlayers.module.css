@@ -10,6 +10,7 @@
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   color: #e8e4ee;
   font-family: 'Roboto', sans-serif;
+  display: none;
 }
 
 .topPlayersContainer h2 {
@@ -71,4 +72,23 @@
 .topPlayersContainer li:nth-child(3) {
   background:#2f3dbd; /* Darker purple for 3rd place */
   font-weight: bold;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: none;
+  transition: transform 0.1s ease;
+}
+
+.closeButton:hover{
+  border: none;
+  cursor: pointer;
+  transform: scale(1.2);
 }
