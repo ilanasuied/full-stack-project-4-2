@@ -5,17 +5,18 @@ import Player from './Player.jsx';
 const LogIn = () => {
 
   const [players, setPlayers] = useState([]);
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
+
   // State to store the current input values
   const [inputName, setInputName] = useState('');
   const [inputPassword, setInputPassword] = useState('');
-  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
 
   // Function to handle adding a player
   const handleAddPlayer = () => {
     const playerName = inputName;
     const playerPassword = inputPassword;
     const playerKey = `${playerName}_${playerPassword}`;
-    if(playerName === '' || playerPassword === ''){
+    if (playerName === '' || playerPassword === '') {
       setInputName('');
       setInputPassword('');
       return;
@@ -26,31 +27,22 @@ const LogIn = () => {
     if (existingPlayer) {
       // Parse the existing player data
       const playerData = JSON.parse(existingPlayer);
-
-      // Update the player data
-      playerData.playing = true;
-      playerData.steps = 0;
-
-      // Save the updated player data back to local storage
-      localStorage.setItem(playerKey, JSON.stringify(playerData));
-
-      alert('Player already exists! Updated playing status and steps.');
       playerAdded = playerData;
     } else {
       // Create a new player object
       const newPlayer = {
         name: playerName,
         password: playerPassword,
+        key: playerKey,
         scores: []
       };
 
       // Save the new player to local storage
       localStorage.setItem(playerKey, JSON.stringify(newPlayer));
-      localStorage.setItem('currentUser', playerKey);
       playerAdded = newPlayer;
     }
 
-    
+
     setPlayers([...players, playerAdded]);
     // Clear the input fields
     setInputName('');
@@ -71,10 +63,19 @@ const LogIn = () => {
     document.getElementById('modal').style.display = 'none';
   }
 
+  
   const nextPlayer = () => {
     setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % players.length);
   };
 
+  const leaveTheGame = (objPlayer) => {
+    setPlayers(prevPlayers => prevPlayers.filter(player => player.key !== objPlayer.key));
+    console.log(players);
+  }
+
+  const playAgain = (objPlayer) => {
+    setPlayers(prevPlayers => [...prevPlayers, objPlayer]);
+  }
 
   return (
     <>
@@ -120,10 +121,12 @@ const LogIn = () => {
       </div>
       <div className={styles.playersList}>
         {players.map((player, index) => (
-          <Player key={index} 
-                  objectPlayer={player} 
-                  isCurrentPlayer={index === currentPlayerIndex}
-                  onActionComplete={nextPlayer}/>
+          <Player key={index}
+            objectPlayer={player}
+            isCurrentPlayer={index === currentPlayerIndex}
+            onActionComplete={nextPlayer}
+            onLeave={leaveTheGame}
+            onPlayAgain={playAgain} />
         ))}
       </div>
     </>
