@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './LogIn.module.css'
 import Player from './Player.jsx';
+import TopPlayers from './TopPlayers';
 
 const LogIn = () => {
 
@@ -16,14 +17,22 @@ const LogIn = () => {
     const playerName = inputName;
     const playerPassword = inputPassword;
     const playerKey = `${playerName}_${playerPassword}`;
+    const includesPlayer = players.some(player => player.name === playerName && player.password === playerPassword);
     if (playerName === '' || playerPassword === '') {
       setInputName('');
       setInputPassword('');
       return;
     }
-    let playerAdded;
+    if (includesPlayer) {
+      setInputName('');
+      setInputPassword('');
+      alert("this player already in the game")
+      return;
+    }
     // Check if player already exists in local storage
     const existingPlayer = localStorage.getItem(playerKey);
+
+    let playerAdded;
     if (existingPlayer) {
       // Parse the existing player data
       const playerData = JSON.parse(existingPlayer);
@@ -63,7 +72,7 @@ const LogIn = () => {
     document.getElementById('modal').style.display = 'none';
   }
 
-  
+
   const nextPlayer = () => {
     setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % players.length);
   };
@@ -71,7 +80,7 @@ const LogIn = () => {
   const leaveTheGame = (objPlayer) => {
     setPlayers(prevPlayers => prevPlayers.filter(player => player.key !== objPlayer.key));
     console.log(players.length);
-    if(players.length == 1){
+    if (players.length == 1) {
       document.getElementById('modal').style.display = 'block';
     }
   }
@@ -82,6 +91,12 @@ const LogIn = () => {
 
   return (
     <>
+      <div className={styles.bodyGamePage}>
+        <h1 className={styles.title}>GET TO 100</h1>
+        <TopPlayers />
+      </div>
+
+
       <div id='modal' className={styles.modal}>
         <div className={styles.modalContent}>
 

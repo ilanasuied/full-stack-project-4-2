@@ -3,14 +3,14 @@
     color: white;
     padding: 20px 50px;
     border-radius: 50px;
-    background-color: rgb(65, 65, 65);
+    background-color: rgba(14, 10, 10, 0.712);
     border: 1px solid rgb(0, 119, 255);
 }
 .playerCartDisable{
-    color: rgb(114, 114, 114);
+    color: rgb(139, 138, 138);
     padding: 20px 50px;
     border-radius: 50px;
-    background-color: rgb(36, 36, 36);
+    background-color: rgba(14, 11, 11, 0.705);
 }
 
 h1,h2 , h4{

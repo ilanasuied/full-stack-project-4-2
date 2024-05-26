@@ -39,7 +39,7 @@ function Player(props) {
     };
 
     const divideByTwo = () => {
-        setCounter(prevCount => prevCount / 2)
+        setCounter(prevCount =>  Math.floor(prevCount / 2))
         setStepsSum(prevstepsSum => prevstepsSum + 1)
         if (counter === 200) {
             gotTo100();
@@ -81,7 +81,7 @@ function Player(props) {
                 onDivide={divideByTwo}
                 disabled={!props.isCurrentPlayer}
             />
-            <h4>scores: [{score.join(', ')}]</h4>
+            <h4>scores: {score.join(', ')}</h4>
             {showModal && (
                 <div className={styles.modal}>
                     <div className={styles.modalContent}>

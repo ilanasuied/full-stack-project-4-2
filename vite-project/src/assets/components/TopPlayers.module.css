@@ -1,95 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Roboto+Slab:wght@400&display=swap');
-
 .topPlayersContainer {
-  border-left: 2px solid #555;
-  float: left;
-  padding: 20px;
-  width: 300px;
-  background: linear-gradient(145deg, #1e1e1e, #03051f);
-  /* background: transparent; */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-  color: #e8e4ee;
-  font-family: 'Roboto', sans-serif;
-  display: none;
-}
-
-.topPlayersContainer h2 {
-  text-align: center;
-  font-size: 26px;
-  margin-bottom: 20px;
-  color: #e5e5f7;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  font-family: 'Roboto Slab', serif;
-}
-
-.topPlayersContainer ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.topPlayersContainer li {
-  font-size: 20px;
-  margin-bottom: 10px;
-  padding: 15px;
-  background: #d0c7e2;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-  position: relative;
-  font-family: 'Roboto Slab', serif;
-}
-
-.topPlayersContainer li span {
-  color: #231b6d;
-  font-weight: bold;
-  text-align: center;
-  display: block;
-}
-
-.topPlayersContainer li::before {
-  content: '🏆';
-  position: absolute;
-  top: -20px;
-  font-size: 30px;
-
-}
-
-.topPlayersContainer li:nth-child(1) {
-  background: #707ce7; /* Light purple for 1st place */
-  font-weight: bold;
-}
-
-.topPlayersContainer li:nth-child(2) {
-  background: #4554da;/* Medium purple for 2nd place */
-
-  font-weight: bold;
-}
-
-.topPlayersContainer li:nth-child(3) {
-  background:#2f3dbd; /* Darker purple for 3rd place */
-  font-weight: bold;
-}
-
-.closeButton {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  padding: 5px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-  transition: none;
-  transition: transform 0.1s ease;
-  color: white;
-}
-
-.closeButton:hover{
-  border: none;
-  cursor: pointer;
-  transform: scale(1.2);
-}
+    border-left: 4px solid #222;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    padding: 20px;
+    width: 300px;
+    background: linear-gradient(145deg, #1b4457, #151a64); /* Dark blue background */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    color: #fff; /* White text color */
+    font-family: 'Montserrat', sans-serif; /* Updated font family */
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s forwards;
+    border-radius: 15px; /* Rounded corners */
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .topPlayersContainer h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #f0f0f0; /* Light gray for heading */
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  .topPlayersContainer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .topPlayersContainer li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    text-align: center; /* Center-align text */
+    color: #ddd; /* Light gray text color */
+  }
+  
+  .topPlayersContainer li span {
+    font-weight: bold;
+  }
+  
+  .topPlayersContainer li::before {
+    content: "\2605"; /* Unicode character for star */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #ffd700; /* Gold color */
+  }
+  
+  .topPlayersContainer li:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.05); /* Transparent white background for odd rows */
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff; /* White color for close button */
+    transition: transform 0.1s ease;
+  }
+  
+  .closeButton:hover {
+    transform: scale(1.2);
+  }
+  
