@@ -1,11 +1,11 @@
 
 import './App.css';
-import LogIn from './assets/components/LogIn';
+import GamePage from './assets/components/GamePage';
 
 function App() {
   return (
     <div className="pageContainer">
-      <LogIn />
+      <GamePage />
     </div>
   );
 }

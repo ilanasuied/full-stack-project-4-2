@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import styles from './LogIn.module.css'
+import styles from './GamePage.module.css'
 import Player from './Player.jsx';
-import TopPlayers from './TopPlayers';
+import TopPlayers from './TopPlayers.jsx';
 
-const LogIn = () => {
+const GamePage = () => {
 
   const [players, setPlayers] = useState([]);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
@@ -67,12 +67,13 @@ const LogIn = () => {
     setInputPassword(event.target.value);
   };
 
+  //when the game starts we hide the modal
   const handleStart = () => {
     handleAddPlayer();
     document.getElementById('modal').style.display = 'none';
   }
 
-
+  //define whose turn it is
   const nextPlayer = () => {
     setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % players.length);
   };
@@ -151,4 +152,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default GamePage;

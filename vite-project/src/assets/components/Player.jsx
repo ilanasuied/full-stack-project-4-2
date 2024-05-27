@@ -16,7 +16,7 @@ function Player(props) {
             gotTo100();
         }
 
-        //goto the function that is in the login file
+        //goto the function that is in the gamePage file
         props.onActionComplete();
     };
 
@@ -67,6 +67,7 @@ function Player(props) {
         LeaveTheGame(objPlayer, true);
         setStepsSum(prevstepsSum => 0);
         setCounter(prevCount => Math.floor(Math.random() * 100));
+        //called the function in GamePage
         props.onPlayAgain(objPlayer);
     }
 
