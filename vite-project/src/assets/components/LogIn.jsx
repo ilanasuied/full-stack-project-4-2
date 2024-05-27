@@ -77,10 +77,10 @@ const LogIn = () => {
     setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % players.length);
   };
 
-  const leaveTheGame = (objPlayer) => {
+  const leaveTheGame = (objPlayer, playAgainCalledMe) => {
     setPlayers(prevPlayers => prevPlayers.filter(player => player.key !== objPlayer.key));
     console.log(players.length);
-    if (players.length == 1) {
+    if (!playAgainCalledMe && players.length == 1) {
       document.getElementById('modal').style.display = 'block';
     }
   }

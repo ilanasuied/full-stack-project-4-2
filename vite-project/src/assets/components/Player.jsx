@@ -2,13 +2,13 @@ import { useState } from 'react'
 import styles from './Player.module.css'
 import Options from './Options.jsx'
 function Player(props) {
-    
+
     const [counter, setCounter] = useState(Math.floor(Math.random() * 100)); //state forthe counter
     const [stepsSum, setStepsSum] = useState(0); //state for the step counter
     const [showModal, setShowModal] = useState(false); //state for modal visibility
     const [score, setScore] = useState(props.objectPlayer.scores); //state for the scores array
 
-    
+
     const addOne = () => {
         setCounter(prevCount => prevCount + 1)
         setStepsSum(prevstepsSum => prevstepsSum + 1)
@@ -39,7 +39,7 @@ function Player(props) {
     };
 
     const divideByTwo = () => {
-        setCounter(prevCount =>  Math.floor(prevCount / 2))
+        setCounter(prevCount => Math.floor(prevCount / 2))
         setStepsSum(prevstepsSum => prevstepsSum + 1)
         if (counter === 200) {
             gotTo100();
@@ -51,7 +51,7 @@ function Player(props) {
         setShowModal(prevShowModal => true); // Show the modal
     }
 
-    const LeaveTheGame = (objPlayer) => {
+    const LeaveTheGame = (objPlayer, playAgainCalledMe = false) => {
         //update the score's array
         objPlayer.scores.push(stepsSum);
         // Save the updated player data back to local storage
@@ -59,11 +59,12 @@ function Player(props) {
         localStorage.setItem(playerKey, JSON.stringify(objPlayer));
 
         setShowModal(prevShowModal => false); // Close the modal
-        props.onLeave(objPlayer);
+        props.onLeave(objPlayer, playAgainCalledMe);
+
     };
 
     const playAgain = (objPlayer) => {
-        LeaveTheGame(objPlayer);
+        LeaveTheGame(objPlayer, true);
         setStepsSum(prevstepsSum => 0);
         setCounter(prevCount => Math.floor(Math.random() * 100));
         props.onPlayAgain(objPlayer);
@@ -85,9 +86,9 @@ function Player(props) {
             {showModal && (
                 <div className={styles.modal}>
                     <div className={styles.modalContent}>
-                        <h2 className={styles.modalContent}>WINNER <br/>🎉🎉🎉</h2>
-                        <button onClick={()=>LeaveTheGame(props.objectPlayer)} className={styles.modalButtonLeave}>Leave</button>
-                        <button onClick={()=>playAgain(props.objectPlayer)} className={styles.modalButtonAgain}>Play Again</button>
+                        <h2 className={styles.modalContent}>WINNER <br />🎉🎉🎉</h2>
+                        <button onClick={() => LeaveTheGame(props.objectPlayer)} className={styles.modalButtonLeave}>Leave</button>
+                        <button onClick={() => playAgain(props.objectPlayer)} className={styles.modalButtonAgain}>Play Again</button>
                     </div>
                 </div>
             )}
