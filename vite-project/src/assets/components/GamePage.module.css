@@ -132,3 +132,13 @@ body {
     opacity: 1;
   }
 }
+
+
+
+.buttonContinair{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  display: none;
+}

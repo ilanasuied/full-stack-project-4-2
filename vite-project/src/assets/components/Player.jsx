@@ -51,7 +51,7 @@ function Player(props) {
         setShowModal(prevShowModal => true); // Show the modal
     }
 
-    const LeaveTheGame = (objPlayer, playAgainCalledMe = false) => {
+    const LeaveTheGame = (objPlayer, playAgainCalledMe) => {
         //update the score's array
         objPlayer.scores.push(stepsSum);
         // Save the updated player data back to local storage
@@ -60,7 +60,6 @@ function Player(props) {
 
         setShowModal(prevShowModal => false); // Close the modal
         props.onLeave(objPlayer, playAgainCalledMe);
-
     };
 
     const playAgain = (objPlayer) => {
@@ -88,7 +87,7 @@ function Player(props) {
                 <div className={styles.modal}>
                     <div className={styles.modalContent}>
                         <h2 className={styles.modalContent}>WINNER <br />🎉🎉🎉</h2>
-                        <button onClick={() => LeaveTheGame(props.objectPlayer)} className={styles.modalButtonLeave}>Leave</button>
+                        <button onClick={() => LeaveTheGame(props.objectPlayer, false)} className={styles.modalButtonLeave}>Leave</button>
                         <button onClick={() => playAgain(props.objectPlayer)} className={styles.modalButtonAgain}>Play Again</button>
                     </div>
                 </div>
